@@ -6,7 +6,7 @@ class Btn extends Component {
   render() {
     return (
       <div className='btn yellow'>
-          Add new note
+          + Add a new note
       </div>
     )
   }
@@ -16,18 +16,15 @@ class Post extends Component {
   render() {
     return (
         <div className='note'>
-          <div>
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <div className='icons'>
+            <i class="fa fa-pencil-square-o padding" aria-hidden="true"></i>
+            <i class="fa fa-trash-o padding" aria-hidden="true"></i>
           </div>
-          <hr/>
+          <div className='clearfix'></div>
+          <hr className='line'/>
           <h2>note 1</h2>
-          <hr/>
-          <ul>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-          </ul>
+          <hr className='line'/>
+          <div id='text'> hoy tengo que comprar blalalallalas</div>
         </div>
     )
   }
@@ -46,5 +43,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
