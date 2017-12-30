@@ -1,0 +1,35 @@
+body {
+  background-color: #C1355E;
+}
+
+.App {
+
+  background-color: #C1355E;
+}
+
+
+.App-title {
+  font-size: 1.5em;
+}
+
+
+.btn {
+  width: 150px;
+  border-radius: 20px;
+  padding: 7px 26px 8px 26px;
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+}
+
+.blue {
+  background-color: #568DD2;
+}
+
+.note {
+  width: 250px;
+  display: inline-block;
+  margin: 20px 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
