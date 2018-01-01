@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+let fakeServerData = {
+  user: {
+    name: 'Betsy',
+    notes: [{
+        title: "supermarket list",
+        text: "I need to buy fruits, yogurths and more items"
+      }
+    ]
+  }
+
+}
+
 class Btn extends Component {
   render() {
     return (
@@ -22,9 +34,9 @@ class Post extends Component {
           </div>
           <div className='clearfix'></div>
           <hr className='line'/>
-          <h2>note 1</h2>
+          <h2>{this.props.notes[0].title}</h2>
           <hr className='line'/>
-          <div id='text'> hoy tengo que comprar blalalallalas</div>
+          <div id='text'>{this.props.notes[0].text}</div>
         </div>
     )
   }
@@ -32,13 +44,28 @@ class Post extends Component {
 
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {serverData: {}}
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({serverData: fakeServerData});
+    }, 1000);
+
+  }
   render() {
     return (
       <div className="App">
-        <h1 className="App-title">Remember me</h1>
-        <Btn/>
-        <Post/>
-        <Post/>
+        {this.state.serverData.user ?
+        <div>
+          <h1 className="App-title">
+            {this.state.serverData.user.name}'s to do list
+          </h1>
+          <Btn/>
+          <Post notes={this.state.serverData.user.notes}/>
+        </div> : <h2>Loading...</h2>
+        }
       </div>
     );
   }
