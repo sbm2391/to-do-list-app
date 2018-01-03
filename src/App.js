@@ -8,7 +8,15 @@ let fakeServerData = {
     notes: [{
         title: "supermarket list",
         text: "I need to buy fruits, yogurths and more items"
-      }
+      },
+      {
+        title: "Christmas present list",
+        text: "I need to buy chocolates"
+      },
+      {
+        title: "Birthday present list",
+        text: "3 diferents items"
+      },
     ]
   }
 
@@ -34,9 +42,9 @@ class Post extends Component {
           </div>
           <div className='clearfix'></div>
           <hr className='line'/>
-          <h2>{this.props.notes[0].title}</h2>
+          <h2>{this.props.note.title}</h2>
           <hr className='line'/>
-          <div id='text'>{this.props.notes[0].text}</div>
+          <div id='text'>{this.props.note.text}</div>
         </div>
     )
   }
@@ -60,10 +68,12 @@ class App extends Component {
         {this.state.serverData.user ?
         <div>
           <h1 className="App-title">
-            {this.state.serverData.user.name}'s to do list
+            {this.state.serverData.user.name}s to do list
           </h1>
           <Btn/>
-          <Post notes={this.state.serverData.user.notes}/>
+          {this.state.serverData.user.notes.map(note =>
+            <Post note={note}/>
+          )}
         </div> : <h2>Loading...</h2>
         }
       </div>
